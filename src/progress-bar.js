@@ -21,7 +21,10 @@ class Project3ProgressBar extends LitElement {
 
   render() {
     return html`
-    
+
+    <div>
+    ${this.title}
+    </div>
     `;
   }
 }
