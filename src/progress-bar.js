@@ -35,14 +35,14 @@ class Project3ProgressBar extends IntersectionObserverMixin(LitElement) {
 
   render() {
     return html`
-
+${this.elementVisible ? html`
     <div class='wrapper'>
       <div>
       ${this.title}
   </div>
 
     </div>
-    `;
+    ` : ``};
   }
 }
 
