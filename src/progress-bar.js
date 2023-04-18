@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html, css,unsafeCSS } from 'lit';
 import { IntersectionObserverMixin } from "@lrnwebcomponents/intersection-element/lib/IntersectionObserverMixin.js";
 
 
@@ -12,8 +12,9 @@ class Project3ProgressBar extends IntersectionObserverMixin(LitElement) {
     }
     return{
       startTime:{type: Number},
-      endTime:{type: Number},
-      title: {type: String}
+      endTime:{type: String},
+      title: {type: String},
+      widthSize: {type: Number}
     }
   }
 
@@ -21,28 +22,55 @@ class Project3ProgressBar extends IntersectionObserverMixin(LitElement) {
 
   .wrapper
   {
-    background-color: blue;
-    border: black;
+
+    border: 2px solid black;
   }
+  .barStyle{
+    height: 50px;
+    width: 440px;
+  }
+
+  .bar
+  {
+    background: linear-gradient(to left, var(--background-of-bar, red), var(--background-of-bar, yellow));
+    width: 440px;
+  animation-timing-function:linear;
+  animation-fill-mode: forwards;
+  animation-delay: 0s;
+  animation-duration: 5s;
+  animation-composition: add;
+  }
+
+  @keyframes progress{
+        0% {width: 0%; }
+        100% {width: 97.8%; }
+      }
+
   `;
 
   constructor() {
     super();
     this.title = 'Testing';
     this.startTime = 0;
-    this.endTime = 100;
+    this.endTime = 20;
+    this.widthSize = 100;
   }
 
   render() {
     return html`
+${this.elementVisible ? html`
 
     <div class='wrapper'>
       <div>
       ${this.title}
   </div>
-
+  <div class="barStyle">
+  <div class="bar" style="animation-duration: ${this.endTime}s">
+  </div>
+  </div>
     </div>
-    `;
+    ` : ``};
+    `
   }
 }
 
