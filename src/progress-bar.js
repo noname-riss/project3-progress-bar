@@ -1,8 +1,7 @@
 import { LitElement, html, css,unsafeCSS } from 'lit';
 import { IntersectionObserverMixin } from "@lrnwebcomponents/intersection-element/lib/IntersectionObserverMixin.js";
+import '@lrnwebcomponents/count-up/count-up.js';
 
-
-const logo = new URL('../assets/open-wc-logo.svg', import.meta.url).href;
 
 class Project3ProgressBar extends IntersectionObserverMixin(LitElement) {
   static get properties() {
@@ -22,8 +21,9 @@ class Project3ProgressBar extends IntersectionObserverMixin(LitElement) {
 
   .wrapper
   {
-
+    display: flex;
     border: 2px solid black;
+    padding: 5px;
   }
   .barStyle{
     height: 40px;
@@ -33,7 +33,10 @@ class Project3ProgressBar extends IntersectionObserverMixin(LitElement) {
     background: grey;
     border-radius: 5px
   }
+.text{
+  padding: 5px;
 
+}
   .bar
   {
     border-radius: 5px;
@@ -59,7 +62,7 @@ class Project3ProgressBar extends IntersectionObserverMixin(LitElement) {
     this.title = 'Testing';
     this.startTime = 0;
     this.endTime = 20;
-    this.widthSize = 100;
+    this.widthSize = 40;
   }
 
   render() {
@@ -67,13 +70,14 @@ class Project3ProgressBar extends IntersectionObserverMixin(LitElement) {
 ${this.elementVisible ? html`
 
     <div class='wrapper'>
-<div>
+<div class="text">
       ${this.title}
   </div>
-  <div class="barStyle" style= "width: ${this.widthSize}px">
-  <div class="bar" style="animation-duration: ${this.endTime}s; width: ${this.widthSize}px; animation-delay: ${this.startTime}s">
+  <div class="barStyle" style= "width: ${this.widthSize}%">
+  <div class="bar" style="animation-duration: ${this.endTime}s; width: 100%; animation-delay: ${this.startTime}s">
   </div>
   </div>
+  <count-up start="${this.startTime}" end="${this.endTime}" duration="${this.endTime}" noeasing="true" decimalPlaces="2"></count-up>
     </div>
     ` : ``};
     `
