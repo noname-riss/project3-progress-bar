@@ -26,19 +26,22 @@ class Project3ProgressBar extends IntersectionObserverMixin(LitElement) {
     border: 2px solid black;
   }
   .barStyle{
-    height: 50px;
+    height: 40px;
     width: 440px;
+    display: flex;
+    padding: 5px;
   }
 
   .bar
   {
-    background: linear-gradient(to left, var(--background-of-bar, red), var(--background-of-bar, yellow));
+    background: linear-gradient(to left, red, yellow);
+    height: 40px;
     width: 440px;
   animation-timing-function:linear;
-  animation-fill-mode: forwards;
+  animation-fill-mode: normal;
   animation-delay: 0s;
   animation-duration: 5s;
-  animation-composition: add;
+  animation-name: progress;
   }
 
   @keyframes progress{
@@ -61,10 +64,10 @@ class Project3ProgressBar extends IntersectionObserverMixin(LitElement) {
 ${this.elementVisible ? html`
 
     <div class='wrapper'>
-      <div>
+
+  <div class="barStyle"><div>
       ${this.title}
   </div>
-  <div class="barStyle">
   <div class="bar" style="animation-duration: ${this.endTime}s">
   </div>
   </div>
