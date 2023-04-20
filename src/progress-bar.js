@@ -30,10 +30,13 @@ class Project3ProgressBar extends IntersectionObserverMixin(LitElement) {
     width: 440px;
     display: flex;
     padding: 5px;
+    background: grey;
+    border-radius: 5px
   }
 
   .bar
   {
+    border-radius: 5px;
     background: linear-gradient(to left, red, yellow);
     height: 40px;
     width: 440px;
@@ -64,10 +67,10 @@ class Project3ProgressBar extends IntersectionObserverMixin(LitElement) {
 ${this.elementVisible ? html`
 
     <div class='wrapper'>
-
-  <div class="barStyle"><div>
+<div>
       ${this.title}
   </div>
+  <div class="barStyle">
   <div class="bar" style="animation-duration: ${this.endTime}s">
   </div>
   </div>
