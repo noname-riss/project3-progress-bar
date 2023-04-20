@@ -70,8 +70,8 @@ ${this.elementVisible ? html`
 <div>
       ${this.title}
   </div>
-  <div class="barStyle">
-  <div class="bar" style="animation-duration: ${this.endTime}s">
+  <div class="barStyle" style= "width: ${this.widthSize}px">
+  <div class="bar" style="animation-duration: ${this.endTime}s; width: ${this.widthSize}px; animation-delay: ${this.startTime}s">
   </div>
   </div>
     </div>

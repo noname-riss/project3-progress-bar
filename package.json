@@ -16,6 +16,7 @@
     "start": "web-dev-server"
   },
   "dependencies": {
+    "@lrnwebcomponents/count-up": "^4.2.0",
     "@lrnwebcomponents/intersection-element": "^4.0.4",
     "lit": "^2.0.2"
   },
