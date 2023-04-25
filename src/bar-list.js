@@ -52,7 +52,7 @@ ${this.bar.map(bars => html`
   </progress-bar>
   `)}
   </div>
-  <count-up start=0 end="${bars.endTime}" duration="${bars.endTime}" ></count-up>
+  <count-up start="${this.startTime}" end="${this.endTime}" duration="${this.endTime}" ></count-up>
 `:``}
 `
   }
