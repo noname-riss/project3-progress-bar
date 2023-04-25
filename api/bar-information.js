@@ -4,18 +4,18 @@ export default async function handler(request, res) {
       "startTime":"0",
       "endTime":"20",
       "title": "Bar 1",
-      "widthSize": "10"
+      "widthSize": "10",
     },
     {
       "startTime":"0",
       "endTime":"40",
       "title": "Bar 2",
-      "widthSize": "20"
+      "widthSize": "20",
     },
     {"startTime":"0",
     "endTime":"80",
     "title": "Bar 3",
-    "widthSize": "40"
+    "widthSize": "40",
   }
     ];
 
