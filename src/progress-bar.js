@@ -5,10 +5,10 @@ import '@lrnwebcomponents/count-up/count-up.js';
 
 class Project3ProgressBar extends LitElement {
   static properties = {
-      startTime:{type: Number},
+      startTime:{type: String},
       endTime:{type: String},
       title: {type: String},
-      widthSize: {type: Number}
+      widthSize: {type: String}
   }
 
   static styles = css`
@@ -73,7 +73,7 @@ class Project3ProgressBar extends LitElement {
   </div>
   <count-up start="${this.startTime}" end="${this.endTime}" duration="${this.endTime}" noeasing="true" decimalPlaces="2"></count-up>
     </div>
-    ;
+
     `
   }
 }

@@ -16,7 +16,11 @@ class BarList extends IntersectionObserverMixin(LitElement) {
 }
 
   static styles = css`
-
+.background
+{
+  padding: 5px;
+  border: 2px solid black;
+}
   `;
 
   constructor() {
@@ -35,7 +39,7 @@ class BarList extends IntersectionObserverMixin(LitElement) {
     }
          return [];
      }).then((data)=>{
-    this.bars = data;
+    this.bar = data;
     });
     }
 
@@ -44,12 +48,12 @@ class BarList extends IntersectionObserverMixin(LitElement) {
     ${this.elementVisible ? html`
 <div class="background">
 ${this.bar.map(bars => html`
-      <progress-bar title="${bars.title}" endTime="${bars.endTime}" startTime="${bars.startTime}" widthSize="${this.widthSize}">
+    <progress-bar title="${bars.title}" endTime="${bars.endTime}" startTime="${bars.startTime}" widthSize="${this.widthSize}">
   </progress-bar>
   `)}
-  <count-up start="${this.startTime}" end="${this.endTime}" duration="${this.endTime}" ></count-up>
-
-`:``};
+  </div>
+  <count-up start=0 end="${bars.endTime}" duration="${bars.endTime}" ></count-up>
+`:``}
 `
   }
 }
