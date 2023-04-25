@@ -2,10 +2,16 @@ import { LitElement, html, css } from 'lit';
 import "./progress-bar.js";
 import '@lrnwebcomponents/count-up/count-up.js';
 
-class BarList extends LitElement {
-  static properties = {
+class BarList extends IntersectionObserverMixin(LitElement) {
+  static get properties() {
+    let props = {};
+    if (super.properties) {
+      props = super.properties;
+    }
+    return{
     bar:{type: Array},
   }
+}
 
   static styles = css`
 
@@ -31,15 +37,16 @@ class BarList extends LitElement {
 
   render() {
     return html`
-    <div>
+    ${this.elementVisible ? html`
 
-       ${this.bar.map(bars => html`
+${this.bar.map(bars => html`
       <progress-bar title="${bars.title}" endTime="${bars.endTime}" startTime="${bars.startTime}" widthSize="${this.widthSize}">
   </progress-bar>
-  <count-up></count-up>
-       `)}
-      </div>
-    `;
+  `)}
+  <count-up start="${this.startTime}" end="${this.endTime}" duration="${this.endTime}" ></count-up>
+
+`:``};
+`
   }
 }
 

@@ -3,18 +3,12 @@ import { IntersectionObserverMixin } from "@lrnwebcomponents/intersection-elemen
 import '@lrnwebcomponents/count-up/count-up.js';
 
 
-class Project3ProgressBar extends IntersectionObserverMixin(LitElement) {
-  static get properties() {
-    let props = {};
-    if (super.properties) {
-      props = super.properties;
-    }
-    return{
+class Project3ProgressBar extends LitElement {
+  static properties = {
       startTime:{type: Number},
       endTime:{type: String},
       title: {type: String},
       widthSize: {type: Number}
-    }
   }
 
   static styles = css`
@@ -67,7 +61,7 @@ class Project3ProgressBar extends IntersectionObserverMixin(LitElement) {
 
   render() {
     return html`
-${this.elementVisible ? html`
+
 
     <div class='wrapper'>
 <div class="text">
@@ -79,7 +73,7 @@ ${this.elementVisible ? html`
   </div>
   <count-up start="${this.startTime}" end="${this.endTime}" duration="${this.endTime}" noeasing="true" decimalPlaces="2"></count-up>
     </div>
-    ` : ``};
+    ;
     `
   }
 }
