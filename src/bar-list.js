@@ -27,6 +27,8 @@ class BarList extends IntersectionObserverMixin(LitElement) {
   }
 
 
+
+
   createBars() {
     const address = '/api/bar-information';
    fetch(address).then((response) =>{
