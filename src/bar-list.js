@@ -26,14 +26,16 @@ class BarList extends IntersectionObserverMixin(LitElement) {
 
 
   createBars() {
-    const address = new URL('../api/bar-information.js',import.meta.url).href;
+    const address = '/api/bar-information';
    fetch(address).then((response) =>{
-         return response.json();
+    if(response.ok){
+      return response.json();
+    }
+         return [];
      }).then((data)=>{
-    this.bar = data;
+    this.bars = data;
     });
     }
-
 
   render() {
     return html`
