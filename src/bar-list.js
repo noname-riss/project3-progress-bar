@@ -16,6 +16,8 @@ class BarList extends IntersectionObserverMixin(LitElement) {
 }
 
   static styles = css`
+
+
 .graphicTitle
 {
   display: column;
@@ -55,6 +57,7 @@ class BarList extends IntersectionObserverMixin(LitElement) {
   render() {
     return html`
     ${this.elementVisible ? html`
+    <div class="graphic" aria-label="Bar Graphic that show how long to load a bar">
 <div class="graphicTitle">
   How long to fill up the bars
   </div>
@@ -63,6 +66,7 @@ ${this.bar.map(bars => html`
     <progress-bar title="${bars.title}" endTime="${bars.endTime}" startTime="${bars.startTime}" widthSize="${bars.widthSize}">
   </progress-bar>
   `)}
+  </div>
   </div>
 `:``}
 `

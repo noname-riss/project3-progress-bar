@@ -49,7 +49,27 @@ class Project3ProgressBar extends LitElement {
         100% {width: 97.8%; }
       }
 
+
+
+
+    @media (prefers-reduced-motion: reduce) {
+  .bar{
+    animation-timing-function:steps(2,jump-end) !important;
+
+  }
+  .counter
+  {
+    visibility: hidden;
+  }
+}
+
+
   `;
+
+
+
+
+
 
   constructor() {
     super();
@@ -71,7 +91,7 @@ class Project3ProgressBar extends LitElement {
   <div class="bar" style="animation-duration: ${this.endTime}s; width: 100%; animation-delay: ${this.startTime}s">
   </div>
   </div>
-  <count-up start="${this.startTime}" end="${this.endTime}" duration="${this.endTime}" noeasing="true" decimalPlaces="2"></count-up>
+  <count-up class="counter" start="${this.startTime}" end="${this.endTime}" duration="${this.endTime}" noeasing="true" decimalPlaces="2"></count-up>
     </div>
 
     `
