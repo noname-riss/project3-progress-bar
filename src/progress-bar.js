@@ -1,5 +1,4 @@
 import { LitElement, html, css,unsafeCSS } from 'lit';
-import { IntersectionObserverMixin } from "@lrnwebcomponents/intersection-element/lib/IntersectionObserverMixin.js";
 import '@lrnwebcomponents/count-up/count-up.js';
 
 
@@ -59,7 +58,7 @@ class Project3ProgressBar extends LitElement {
   }
   .counter
   {
-    visibility: hidden;
+    count-up.decimalplaces: "0" !important;
   }
 }
 
@@ -91,7 +90,7 @@ class Project3ProgressBar extends LitElement {
   <div class="bar" style="animation-duration: ${this.endTime}s; width: 100%; animation-delay: ${this.startTime}s">
   </div>
   </div>
-  <count-up class="counter" start="${this.startTime}" end="${this.endTime}" duration="${this.endTime}" noeasing="true" decimalPlaces="2"></count-up>
+  <count-up class="counter" start="${this.startTime}" end="${this.endTime}" duration="${this.endTime}" noeasing="true" decimalplaces="2"></count-up>
     </div>
 
     `
