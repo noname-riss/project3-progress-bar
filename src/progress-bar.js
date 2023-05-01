@@ -1,4 +1,4 @@
-import { LitElement, html, css,unsafeCSS } from 'lit';
+import { LitElement, html, css} from 'lit';
 import '@lrnwebcomponents/count-up/count-up.js';
 
 
@@ -7,7 +7,9 @@ class Project3ProgressBar extends LitElement {
       startTime:{type: String},
       endTime:{type: String},
       title: {type: String},
-      widthSize: {type: String}
+      widthSize: {type: String},
+      startColor: {type: String},
+      endColor: {type: String}
   }
 
   static styles = css`
@@ -76,6 +78,7 @@ class Project3ProgressBar extends LitElement {
     this.startTime = 0;
     this.endTime = 20;
     this.widthSize = 40;
+
   }
 
   render() {
@@ -87,7 +90,8 @@ class Project3ProgressBar extends LitElement {
       ${this.title}
   </div>
   <div class="barStyle" style= "width: ${this.widthSize}%">
-  <div class="bar" style="animation-duration: ${this.endTime}s; width: 100%; animation-delay: ${this.startTime}s">
+  <div class="bar" style="animation-duration: ${this.endTime}s; width: 100%; animation-delay: ${this.startTime}s; background: linear-gradient(to left, ${this.startColor}, ${this.endColor});
+">
   </div>
   </div>
   <count-up class="counter" start="${this.startTime}" end="${this.endTime}" duration="${this.endTime}" noeasing="true" decimalplaces="2"></count-up>
