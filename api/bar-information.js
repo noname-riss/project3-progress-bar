@@ -5,17 +5,23 @@ export default async function handler(request, res) {
       "endTime":"20",
       "title": "Bar 1",
       "widthSize": "10",
+      "startColor": "yellow",
+      "endColor": "red"
     },
     {
       "startTime":"0",
       "endTime":"40",
       "title": "Bar 2",
       "widthSize": "20",
+      "startColor": "blue",
+      "endColor": "green"
     },
     {"startTime":"0",
     "endTime":"80",
     "title": "Bar 3",
     "widthSize": "40",
+    "startColor": "yellow",
+    "endColor": "purple"
   }
     ];
 

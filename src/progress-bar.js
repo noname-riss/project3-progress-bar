@@ -1,5 +1,6 @@
 import { LitElement, html, css} from 'lit';
 import '@lrnwebcomponents/count-up/count-up.js';
+import { CountUp } from '@lrnwebcomponents/count-up/count-up.js';
 
 
 class Project3ProgressBar extends LitElement {
@@ -9,7 +10,8 @@ class Project3ProgressBar extends LitElement {
       title: {type: String},
       widthSize: {type: String},
       startColor: {type: String},
-      endColor: {type: String}
+      endColor: {type: String},
+      decimals: {type: Number}
   }
 
   static styles = css`
@@ -56,18 +58,19 @@ class Project3ProgressBar extends LitElement {
     @media (prefers-reduced-motion: reduce) {
   .bar{
     animation-timing-function:steps(2,jump-end) !important;
-
-  }
-  .counter
-  {
-    count-up.decimalplaces: "0" !important;
   }
 }
 
 
   `;
 
+reducedMotion(){
+const isReduced = window.matchMedia(`(prefers-reduced-motion: reduce)`) === true || window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
 
+if (isReduced) {
+  this.decimals = 0;
+}
+}
 
 
 
@@ -78,6 +81,10 @@ class Project3ProgressBar extends LitElement {
     this.startTime = 0;
     this.endTime = 20;
     this.widthSize = 40;
+    this.startColor="yellow";
+    this.endColor="red";
+    this.decimals=2;
+    this.reducedMotion();
 
   }
 
@@ -94,7 +101,7 @@ class Project3ProgressBar extends LitElement {
 ">
   </div>
   </div>
-  <count-up class="counter" start="${this.startTime}" end="${this.endTime}" duration="${this.endTime}" noeasing="true" decimalplaces="2"></count-up>
+  <count-up class="counter" start="${this.startTime}" end="${this.endTime}" duration="${this.endTime}" noeasing="true" decimalplaces="${this.decimals}"></count-up>
     </div>
 
     `

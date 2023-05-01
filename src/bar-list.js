@@ -63,7 +63,7 @@ class BarList extends IntersectionObserverMixin(LitElement) {
   </div>
 <div class="background">
 ${this.bar.map(bars => html`
-    <progress-bar title="${bars.title}" endTime="${bars.endTime}" startTime="${bars.startTime}" widthSize="${bars.widthSize}">
+    <progress-bar title="${bars.title}" endTime="${bars.endTime}" startTime="${bars.startTime}" widthSize="${bars.widthSize}" startColor="${bars.startColor}" endColor="${bars.endColor}">
   </progress-bar>
   `)}
   </div>
