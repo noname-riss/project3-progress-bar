@@ -97,7 +97,7 @@ if (isReduced) {
       ${this.title}
   </div>
   <div class="barStyle" style= "width: ${this.widthSize}%">
-  <div class="bar" style="animation-duration: ${this.endTime}s; width: 100%; animation-delay: ${this.startTime}s; background: linear-gradient(to left, ${this.startColor}, ${this.endColor});
+  <div class="bar" style="animation-duration: ${this.endTime}s; width: 100%; animation-delay: ${this.startTime}s; background: linear-gradient(to left, ${this.endColor}, ${this.startColor});
 ">
   </div>
   </div>
